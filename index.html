@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>We Are Not Really Strangers (Online)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== INTRO PAGE (SCREEN #1) ========== -->
+  <div id="introPage" class="screen">
+    <h1>We Are Not Really Strangers</h1>
+    <!-- Center the Enter button -->
+    <button id="enterButton" class="btn red-btn enter-button">Enter</button>
+  </div>
+
+  <!-- ========== MAIN PAGE (SCREEN #2) ========== -->
+  <div id="mainPage" class="screen">
+    <!-- White container in middle center for all content -->
+    <div class="main-page-container">
+      <h2>We Are Not Really Strangers</h2>
+
+      <!-- Select # of Players -->
+      <div class="players-section">
+        <label for="numPlayers">Select # of Players:</label>
+        <select id="numPlayers" class="large-select"></select>
+      </div>
+
+      <!-- Dynamic area to show "Player #1", "Player #2", etc. -->
+      <div id="playerInputs"></div>
+
+      <!-- Select Deck (populated from your Google Sheets) -->
+      <div class="deck-section">
+        <label for="selectDeck">Select Deck:</label>
+        <select id="selectDeck" class="large-select">
+          <!-- Populated dynamically from your spreadsheet's sheet names -->
+        </select>
+      </div>
+
+      <!-- Begin Session -->
+      <button id="beginSession" class="btn white-btn large-btn">Begin Session</button>
+    </div>
+  </div>
+
+  <!-- ========== GAME PAGE (SCREEN #3) ========== -->
+  <div id="gamePage" class="screen">
+
+    <!-- Title -->
+    <h2 id="gamePageTitle">We Are Not Really Strangers (Online)</h2>
+    
+    <!-- Display chosen deck name -->
+    <div id="selectedDeckName" class="deck-name-box">
+      <!-- Will be populated with the chosen deck name -->
+    </div>
+
+    <!-- Top bar: Timer (top-right), "Your Turn" info (top-left) -->
+    <div class="top-bar">
+      <div class="turn-indicator">
+        <h3>Your Turn</h3>
+        <div id="currentPlayer" class="turn-player-box"></div>
+      </div>
+      <div class="timer">
+        <span id="timerDisplay">00:00:00</span>
+      </div>
+    </div>
+
+    <!-- Level Selector (matching your sheet's column A values) -->
+    <div class="level-selector">
+      <label for="levelSelect">Current Level:</label>
+      <select id="levelSelect" class="large-select">
+        <option value="Level 1 (Perception)">Level 1 (Perception)</option>
+        <option value="Level 2 (Connection)">Level 2 (Connection)</option>
+        <option value="Level 3 (Reflection)">Level 3 (Reflection)</option>
+      </select>
+    </div>
+
+    <!-- Middle area for the two boxes (White on left, Red on right) -->
+    <div class="card-area">
+      <!-- White box (Question from Column B) -->
+      <div id="whiteBox" class="card white-card">
+        <!-- Question text goes here -->
+      </div>
+
+      <!-- Red box (Can display "Level: X" or any extra info) -->
+      <div id="redBox" class="card red-card">
+        <!-- Additional info -->
+      </div>
+    </div>
+
+    <!-- Buttons at bottom: "Pause" (was Main Page), End Turn, Next Card, Dig Deeper -->
+    <div class="buttons-section">
+      <button id="pauseBtn" class="btn large-btn">Pause</button>
+      <button id="endTurnBtn" class="btn large-btn">End Turn</button>
+      <button id="nextCardBtn" class="btn large-btn">Next Card</button>
+      <button id="digDeeperBtn" class="btn large-btn">Dig Deeper</button>
+    </div>
+
+    <!-- Overlay for pausing and returning to Main Page -->
+    <div id="pauseOverlay" class="overlay hidden">
+      <div class="overlay-content">
+        <p>GAME PAUSED, ARE YOU SURE YOU WANT TO GO BACK TO THE MAIN PAGE?</p>
+        <button id="resumeBtn" class="btn large-btn">Resume</button>
+        <button id="confirmMainPageBtn" class="btn large-btn">Main Page</button>
+      </div>
+    </div>
+
+    <!-- Dig Deeper overlay -->
+    <div id="digDeeperOverlay" class="overlay hidden">
+      <div class="overlay-content">
+        <h3>Dig Deeper: Select User</h3>
+        <!-- We'll populate players & squares here -->
+        <div id="digDeeperPlayers"></div>
+        <button id="cancelDigDeeperBtn" class="btn large-btn">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Dig Deeper confirm overlay -->
+    <div id="digDeeperConfirmOverlay" class="overlay hidden">
+      <div class="overlay-content">
+        <p id="digDeeperConfirmText"></p>
+        <button id="noDigDeeperBtn" class="btn large-btn">No</button>
+        <button id="yesDigDeeperBtn" class="btn large-btn">Yes</button>
+      </div>
+    </div>
+
+    <!-- "DIG DEEPER BRO" overlay -->
+    <div id="digDeeperBoxOverlay" class="overlay hidden">
+      <div class="overlay-content">
+        <p>DIG DEEPER BRO</p>
+        <button id="digDeeperDoneBtn" class="btn large-btn">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
