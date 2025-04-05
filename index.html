@@ -10,125 +10,186 @@
 
   <!-- ========== INTRO PAGE (SCREEN #1) ========== -->
   <div id="introPage" class="screen">
-    <h1>We Are Not Really Strangers</h1>
-    <!-- Center the Enter button -->
-    <button id="enterButton" class="btn red-btn enter-button">Enter</button>
+    <h1 class="intro-title-text">We Are Not Really Strangers (Online Version)</h1>
+    <img
+      id="enterButtonImage"
+      src="media/my_Enterbutton.png"
+      alt="Enter Button"
+      class="enter-image-button enter-image-button-lg pressed-button"
+    />
   </div>
 
   <!-- ========== MAIN PAGE (SCREEN #2) ========== -->
   <div id="mainPage" class="screen">
-    <!-- White container in middle center for all content -->
     <div class="main-page-container">
-      <h2>We Are Not Really Strangers</h2>
+      <div class="content-box">
+        <h2>We Are Not Really Strangers</h2>
 
-      <!-- Select # of Players -->
-      <div class="players-section">
-        <label for="numPlayers">Select # of Players:</label>
-        <select id="numPlayers" class="large-select"></select>
+        <div class="players-section">
+          <label for="numPlayers" class="main-label">Select # of Players:</label>
+          <select id="numPlayers"></select>
+        </div>
+
+        <!-- The bigger player fields go here -->
+        <div id="playerInputs"></div>
+
+        <div class="deck-section">
+          <label for="selectDeck" class="main-label">Select Deck:</label>
+          <select id="selectDeck"></select>
+        </div>
+
+        <img
+          id="beginSessionImage"
+          class="begin-btn begin-btn-lg pressed-button"
+          src="media/my_Beginbutton.png"
+          alt="Begin Session"
+          style="cursor: pointer;"
+        />
       </div>
-
-      <!-- Dynamic area to show "Player #1", "Player #2", etc. -->
-      <div id="playerInputs"></div>
-
-      <!-- Select Deck (populated from your Google Sheets) -->
-      <div class="deck-section">
-        <label for="selectDeck">Select Deck:</label>
-        <select id="selectDeck" class="large-select">
-          <!-- Populated dynamically from your spreadsheet's sheet names -->
-        </select>
-      </div>
-
-      <!-- Begin Session -->
-      <button id="beginSession" class="btn white-btn large-btn">Begin Session</button>
     </div>
   </div>
 
   <!-- ========== GAME PAGE (SCREEN #3) ========== -->
+  <!-- (Unchanged except for the pressed-button fix in CSS) -->
   <div id="gamePage" class="screen">
-
-    <!-- Title -->
-    <h2 id="gamePageTitle">We Are Not Really Strangers (Online)</h2>
-    
-    <!-- Display chosen deck name -->
-    <div id="selectedDeckName" class="deck-name-box">
-      <!-- Will be populated with the chosen deck name -->
+    <div id="topSection">
+      <h1 class="game-title">We Are Not Really Strangers (Online)</h1>
+      <div id="deckNameDisplay" class="deck-name-display"></div>
     </div>
 
-    <!-- Top bar: Timer (top-right), "Your Turn" info (top-left) -->
-    <div class="top-bar">
-      <div class="turn-indicator">
-        <h3>Your Turn</h3>
-        <div id="currentPlayer" class="turn-player-box"></div>
-      </div>
-      <div class="timer">
-        <span id="timerDisplay">00:00:00</span>
-      </div>
-    </div>
+    <div id="gameContentContainer" class="game-content-container">
+      <div class="top-bar">
+        <div class="turn-indicator">
+          <h3>Your Turn:</h3>
+          <div id="currentPlayer" class="current-player-box"></div>
+        </div>
 
-    <!-- Level Selector (matching your sheet's column A values) -->
-    <div class="level-selector">
-      <label for="levelSelect">Current Level:</label>
-      <select id="levelSelect" class="large-select">
-        <option value="Level 1 (Perception)">Level 1 (Perception)</option>
-        <option value="Level 2 (Connection)">Level 2 (Connection)</option>
-        <option value="Level 3 (Reflection)">Level 3 (Reflection)</option>
-      </select>
-    </div>
-
-    <!-- Middle area for the two boxes (White on left, Red on right) -->
-    <div class="card-area">
-      <!-- White box (Question from Column B) -->
-      <div id="whiteBox" class="card white-card">
-        <!-- Question text goes here -->
+        <div class="timer-container">
+          <div class="timer-label">Time Spent Connecting:</div>
+          <div class="timer-box">
+            <span id="timerDisplay">00:00:00</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Red box (Can display "Level: X" or any extra info) -->
-      <div id="redBox" class="card red-card">
-        <!-- Additional info -->
+      <div class="level-selector">
+        <label for="levelSelect">Current Level:</label>
+        <select id="levelSelect">
+          <option value="Level 1 (Perception)">Level 1 (Perception)</option>
+          <option value="Level 2 (Connection)">Level 2 (Connection)</option>
+          <option value="Level 3 (Reflection)">Level 3 (Reflection)</option>
+        </select>
+      </div>
+
+      <div class="cards-remaining-container">
+        <label class="cards-remaining-label">Cards Remaining:</label>
+        <div id="cardsRemainingDisplay" class="cards-remaining-box">0</div>
+      </div>
+
+      <div class="game-layout">
+        <div class="left-col">
+          <div class="card-area">
+            <div id="whiteBox" class="card white-card"></div>
+            <div id="redBox" class="card red-card"></div>
+          </div>
+
+          <div class="buttons-section">
+            <img
+              id="pauseBtnImage"
+              src="media/my_Pausebutton.png"
+              alt="Pause"
+              class="action-btn-img action-btn-img-lg pressed-button"
+            />
+            <img
+              id="endTurnBtnImage"
+              src="media/my_Endturnbutton.png"
+              alt="End Turn"
+              class="action-btn-img action-btn-img-lg pressed-button"
+            />
+            <img
+              id="nextCardBtnImage"
+              src="media/my_Nextcardbutton.png"
+              alt="Next Card"
+              class="action-btn-img action-btn-img-lg pressed-button"
+            />
+            <img
+              id="digDeeperBtnImage"
+              src="media/my_Digdeeperbutton.png"
+              alt="Dig Deeper"
+              class="action-btn-img action-btn-img-lg pressed-button"
+            />
+          </div>
+        </div>
+
+        <div class="right-col">
+          <h3 class="previous-questions-title">Previous Questions:</h3>
+          <div id="previousQuestionsBox" class="previous-questions-box"></div>
+        </div>
       </div>
     </div>
 
-    <!-- Buttons at bottom: "Pause" (was Main Page), End Turn, Next Card, Dig Deeper -->
-    <div class="buttons-section">
-      <button id="pauseBtn" class="btn large-btn">Pause</button>
-      <button id="endTurnBtn" class="btn large-btn">End Turn</button>
-      <button id="nextCardBtn" class="btn large-btn">Next Card</button>
-      <button id="digDeeperBtn" class="btn large-btn">Dig Deeper</button>
-    </div>
-
-    <!-- Overlay for pausing and returning to Main Page -->
+    <!-- Overlays (unchanged except for pressed-button fix in CSS) -->
     <div id="pauseOverlay" class="overlay hidden">
-      <div class="overlay-content">
-        <p>GAME PAUSED, ARE YOU SURE YOU WANT TO GO BACK TO THE MAIN PAGE?</p>
-        <button id="resumeBtn" class="btn large-btn">Resume</button>
-        <button id="confirmMainPageBtn" class="btn large-btn">Main Page</button>
+      <div class="overlay-content pause-overlay-content">
+        <p class="pause-overlay-text">
+          GAME PAUSED, ARE YOU SURE YOU WANT TO GO BACK TO THE MAIN PAGE?
+        </p>
+        <img
+          id="resumeBtnImage"
+          src="media/my_Resumebutton.png"
+          alt="Resume"
+          class="overlay-btn-img overlay-btn-img-lg pressed-button"
+        />
+        <img
+          id="confirmMainPageBtnImage"
+          src="media/my_Mainpagebutton.png"
+          alt="Main Page"
+          class="overlay-btn-img overlay-btn-img-lg pressed-button"
+        />
       </div>
     </div>
 
-    <!-- Dig Deeper overlay -->
     <div id="digDeeperOverlay" class="overlay hidden">
-      <div class="overlay-content">
-        <h3>Dig Deeper: Select User</h3>
-        <!-- We'll populate players & squares here -->
-        <div id="digDeeperPlayers"></div>
-        <button id="cancelDigDeeperBtn" class="btn large-btn">Cancel</button>
+      <div class="overlay-content dig-deeper-overlay-content">
+        <h2 class="dig-deeper-title">DIG DEEPER: Select User:</h2>
+        <div id="digDeeperPlayers" class="dig-deeper-user-list"></div>
+        <img
+          id="cancelDigDeeperBtnImage"
+          src="media/my_Cancelbutton.png"
+          alt="Cancel"
+          class="overlay-btn-img overlay-btn-img-lg pressed-button"
+          style="margin-top: 20px;"
+        />
       </div>
     </div>
 
-    <!-- Dig Deeper confirm overlay -->
     <div id="digDeeperConfirmOverlay" class="overlay hidden">
-      <div class="overlay-content">
-        <p id="digDeeperConfirmText"></p>
-        <button id="noDigDeeperBtn" class="btn large-btn">No</button>
-        <button id="yesDigDeeperBtn" class="btn large-btn">Yes</button>
+      <div class="overlay-content dig-deeper-confirm-overlay-content">
+        <p id="digDeeperConfirmText" class="dig-deeper-confirm-text"></p>
+        <img
+          id="noDigDeeperBtnImage"
+          src="media/my_Nobutton.png"
+          alt="No"
+          class="overlay-btn-img overlay-btn-img-lg pressed-button"
+        />
+        <img
+          id="yesDigDeeperBtnImage"
+          src="media/my_Yesbutton.png"
+          alt="Yes"
+          class="overlay-btn-img overlay-btn-img-lg pressed-button"
+        />
       </div>
     </div>
 
-    <!-- "DIG DEEPER BRO" overlay -->
     <div id="digDeeperBoxOverlay" class="overlay hidden">
-      <div class="overlay-content">
-        <p>DIG DEEPER BRO</p>
-        <button id="digDeeperDoneBtn" class="btn large-btn">Done</button>
+      <div class="overlay-content dig-deeper-box-overlay-content">
+        <p class="dig-deeper-bro-text">DIG DEEPER BRO</p>
+        <img
+          id="digDeeperDoneBtnImage"
+          src="media/my_Donebutton.png"
+          alt="Done"
+          class="overlay-btn-img overlay-btn-img-lg pressed-button"
+        />
       </div>
     </div>
   </div>
@@ -136,4 +197,11 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
 
